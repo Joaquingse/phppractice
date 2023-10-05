@@ -5,9 +5,9 @@ if (isset($_POST['login_form'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  $con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
   $query = "SELECT * FROM usuarios WHERE email = '$email' AND clave = md5('$password') ";
-  $resultset = mysqli_query($con, $query);
+  $resultset = mysqli_query($conexion, $query);
   $cliente = mysqli_fetch_assoc($resultset);
   if (!$cliente) {
     $error_message = "Usuario no encontrado";

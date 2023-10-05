@@ -8,13 +8,13 @@ if (!isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['enviar_form'])) {
-  $con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
-  $nombre = sanitizar($con, $_POST['nombre']);
-  $apellido = sanitizar($con, $_POST['apellido']);
-  $email = sanitizar($con, $_POST['email']);
-  $clave = sanitizar($con, $_POST['clave']);
-  $dni = sanitizar($con, $_POST['dni']);
-  $direccion = sanitizar($con, $_POST['direccion']);
+  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  $nombre = sanitizar($conexion, $_POST['nombre']);
+  $apellido = sanitizar($conexion, $_POST['apellido']);
+  $email = sanitizar($conexion, $_POST['email']);
+  $clave = sanitizar($conexion, $_POST['clave']);
+  $dni = sanitizar($conexion, $_POST['dni']);
+  $direccion = sanitizar($conexion, $_POST['direccion']);
 
   $query = "INSERT INTO clientes (nombre, apellido, email, clave, dni, direccion)
    VALUES ('$nombre','$apellido', '$email', md5('$clave'), '$dni','$direccion')";
@@ -22,10 +22,10 @@ if (isset($_POST['enviar_form'])) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
   }
 
-  $resultset = mysqli_query($con, $query);
+  $resultset = mysqli_query($conexion, $query);
 
-  if ($con->errno) {
-    die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
+  if ($conexion->errno) {
+    die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
   }
   print "<meta http-equiv='refresh' content='0; url=panel.php?modulo=clientes' ";
 

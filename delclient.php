@@ -1,6 +1,5 @@
 <?php
 include_once "db_connect.php";
-
 session_start();
 session_regenerate_id();
 if (!isset($_SESSION['username'])) {
@@ -12,16 +11,16 @@ if (!isset($_SESSION['username'])) {
 //ini_set("display_startup_errors", 0);
 
 $id = $_REQUEST["id"];
-//$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+$conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
 if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
 }
 
 $query = "SELECT * FROM clientes WHERE id=$id";
-$resultset = mysqli_query($con, $query);
+$resultset = mysqli_query($conexion, $query);
 $client = mysqli_fetch_assoc($resultset);
-if ($con->errno) {
-    die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
+if ($conexion->errno) {
+    die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
 }
 
 ?>

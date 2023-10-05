@@ -14,39 +14,39 @@ ini_set("display_startup_errors", 0);
 //anula los reportes de error de mysql
 //mysqli_report(MYSQLI_REPORT_OFF);
 
-$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+$conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
 $id = $_REQUEST["id"];
 if (mysqli_connect_errno()) {
   die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
 }
-if ($con->connect_errno) {
-  die("<p>Error de conexión Nº: $con->connect_errno - $con->connect_error</p>\n</body>\n</html>");
+if ($conexion->connect_errno) {
+  die("<p>Error de conexión Nº: $conexion->connect_errno - $conexion->connect_error</p>\n</body>\n</html>");
 }
 
 $query = "SELECT * FROM clientes WHERE id= $id";
-$resultset = mysqli_query($con, $query);
-if ($con->errno) {
-  die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
+$resultset = mysqli_query($conexion, $query);
+if ($conexion->errno) {
+  die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
 }
 
 if (isset($_POST['edit_client'])) {
-  $con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
-  $nombre = sanitizar($con, $_POST['nombre']);
-  $apellido = sanitizar($con, $_POST['apellido']);
-  $email = sanitizar($con, $_POST['email']);
-  $clave = sanitizar($con, $_POST['clave']);
-  $dni = sanitizar($con, $_POST['dni']);
-  $direccion = sanitizar($con, $_POST['direccion']);
+  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  $nombre = sanitizar($conexion, $_POST['nombre']);
+  $apellido = sanitizar($conexion, $_POST['apellido']);
+  $email = sanitizar($conexion, $_POST['email']);
+  $clave = sanitizar($conexion, $_POST['clave']);
+  $dni = sanitizar($conexion, $_POST['dni']);
+  $direccion = sanitizar($conexion, $_POST['direccion']);
   $query = "UPDATE clientes 
         SET nombre='$nombre', apellido='$apellido', email='$email', clave=md5('$clave'), dni='$dni', direccion='$direccion' 
         WHERE id=$id";
   if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
   }
-  $resultset = mysqli_query($con, $query);
+  $resultset = mysqli_query($conexion, $query);
 
-  if ($con->errno) {
-    die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
+  if ($conexion->errno) {
+    die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
   }
   print "<meta http-equiv='refresh' content='0; url=panel.php?modulo=clientes' ";
 
