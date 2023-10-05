@@ -4,7 +4,7 @@
 
 $db_host = "joaquingse-server.mysql.database.azure.com";
 $db_user = "irqfrfpytc";
-$db_pass = "FO54KY5GA5HLCRJ7$";
+$db_pass = "Curso_PHP1";
 $db_database = "joaquingse";
 $db_port = "3306";
 
