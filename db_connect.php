@@ -2,11 +2,18 @@
 
 //session_start();
 
-$db_host = "localhost";
+$db_host = "joaquingse-server.mysql.database.azure.com";
 $db_user = "joaquin";
-$db_pass = "4tl3t1c0";
+$db_pass = "Curso_PHP1";
 $db_database = "joaquingse";
 $db_port = "3306";
+
+$con = mysqli_init();
+mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
+//$conexion = mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 3306, MYSQLI_CLIENT_SSL);
+
+
+
 
 function console_log($output, $with_script_tags = true)
 {
@@ -17,9 +24,9 @@ function console_log($output, $with_script_tags = true)
   echo $js_code;
 }
 
-function sanitizar($conexion, $datos)
+function sanitizar($conn, $datos)
 {
-  $res = mysqli_real_escape_string($conexion, htmlspecialchars(trim(strip_tags($datos ?? ""))));
+  $res = mysqli_real_escape_string($conn, htmlspecialchars(trim(strip_tags($datos ?? ""))));
   return $res;
 }
 
