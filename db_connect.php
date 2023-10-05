@@ -4,7 +4,7 @@
 
 $db_host = "localhost";
 $db_user = "joaquin";
-$db_pass = "4tl3t1c0";
+$db_pass = "Curso_PHP1";
 $db_database = "joaquingse";
 $db_port = "3306";
 
