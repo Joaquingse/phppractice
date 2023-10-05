@@ -7,6 +7,11 @@ $db_user = "joaquin";
 $db_pass = "Curso_PHP1";
 $db_database = "joaquingse";
 $db_port = "3306";
+$db_auth = "./ssl/DigiCertGlobalRootCA.crt.pem";
+
+$con = mysqli_init();
+mysqli_ssl_set($con,NULL,NULL, $db_auth, NULL, NULL);
+mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 3306, MYSQLI_CLIENT_SSL);
 
 function console_log($output, $with_script_tags = true)
 {
@@ -22,7 +27,3 @@ function sanitizar($conexion, $datos)
   $res = mysqli_real_escape_string($conexion, htmlspecialchars(trim(strip_tags($datos ?? ""))));
   return $res;
 }
-
-
-
-?>
