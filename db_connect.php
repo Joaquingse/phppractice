@@ -3,7 +3,7 @@
 //session_start();
 
 $db_host = "joaquingse-server.mysql.database.azure.com";
-$db_user = "irqfrfpytc";
+$db_user = "joaquin";
 $db_pass = "Curso_PHP1";
 $db_database = "joaquingse";
 $db_port = "3306";
