@@ -2,9 +2,9 @@
 
 //session_start();
 
-$db_host = "localhost";
-$db_user = "joaquin";
-$db_pass = "4tl3t1c0";
+$db_host = "joaquingse-server.mysql.database.azure.com";
+$db_user = "irqfrfpytc";
+$db_pass = "FO54KY5GA5HLCRJ7$";
 $db_database = "joaquingse";
 $db_port = "3306";
 
