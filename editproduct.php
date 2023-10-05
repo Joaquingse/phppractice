@@ -15,38 +15,38 @@ ini_set("display_startup_errors", 0);
 //anula los reportes de error de mysql
 //mysqli_report(MYSQLI_REPORT_OFF);
 
-$conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+//$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
 $id = $_REQUEST["id"];
 if (mysqli_connect_errno()) {
   die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
 }
-if ($conexion->connect_errno) {
-  die("<p>Error de conexión Nº: $conexion->connect_errno - $conexion->connect_error</p>\n</body>\n</html>");
+if ($con->connect_errno) {
+  die("<p>Error de conexión Nº: $con->connect_errno - $con->connect_error</p>\n</body>\n</html>");
 }
 
 $query = "SELECT * FROM productos WHERE id= $id";
-$resultset = mysqli_query($conexion, $query);
+$resultset = mysqli_query($con, $query);
 console_log($resultset);
-if ($conexion->errno) {
-  die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+if ($con->errno) {
+  die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
 }
 
 if (isset($_POST['edit_product'])) {
-  $nombre = sanitizar($conexion, $_POST['nombre']);
-  $descripcion = sanitizar($conexion, $_POST['descripcion']);
-  $precio = sanitizar($conexion, $_POST['precio']);
-  $existencias = sanitizar($conexion, $_POST['existencias']);
-  //$imagen = sanitizar($conexion, $_POST['imagen']);
-  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  $nombre = sanitizar($con, $_POST['nombre']);
+  $descripcion = sanitizar($con, $_POST['descripcion']);
+  $precio = sanitizar($con, $_POST['precio']);
+  $existencias = sanitizar($con, $_POST['existencias']);
+  //$imagen = sanitizar($con, $_POST['imagen']);
+  //$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
   $query = "UPDATE productos 
         SET nombre='$nombre', descripcion='$descripcion', precio='$precio', existencias='$existencias', imagen='$imagen' 
         WHERE id=$id";
   if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
   }
-  $resultset = mysqli_query($conexion, $query);
-  if ($conexion->errno) {
-    die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+  $resultset = mysqli_query($con, $query);
+  if ($con->errno) {
+    die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
   }
   print "<meta http-equiv='refresh' content='0; url=panel.php?modulo=productos' ";
   $_SESSION['message'] = "Producto actualizado";
@@ -92,23 +92,23 @@ if (isset($archivo) && $archivo != "") {
       //print "<p>idproducto:<br>$id</p>";
       $query3 = "INSERT INTO fotos (idproducto,nombre) values ('$id', '$archivo')";
       //print "<p>$query3</p>";
-      $resultset3 = mysqli_query($conexion, $query3);
+      $resultset3 = mysqli_query($con, $query3);
       console_log($query3);
     }
     if ($resultset3) {
       echo '<div><b>Se ha insertado correctamente la imagen.</b></div>';
       $query4 = "UPDATE productos SET imagen = '$archivo' WHERE id='$id'";
 
-      $resultset4 = mysqli_query($conexion, $query4);
+      $resultset4 = mysqli_query($con, $query4);
       console_log($query4);
     } else {
       echo '<div><b>Ocurrió algún error al insertat el registro del fichero. No pudo guardarse.</b></div>';
     }
   }
 }
-if ($conexion->errno) {
-  echo "<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>";
-  die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+if ($con->errno) {
+  echo "<p>Error en la consulta:$con->error </p>\n</body>\n</html>";
+  die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
 }
 
 

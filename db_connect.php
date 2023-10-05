@@ -9,8 +9,8 @@ $db_database = "joaquingse";
 $db_port = "3306";
 
 $con = mysqli_init();
-mysqli_ssl_set($con,NULL,NULL, "{path to CA cert}", NULL, NULL);
-//$conexion = mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 3306, MYSQLI_CLIENT_SSL);
+mysqli_ssl_set($con,NULL,NULL,"/var/cert/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 3306, MYSQLI_CLIENT_SSL);
 
 
 
@@ -29,7 +29,3 @@ function sanitizar($conn, $datos)
   $res = mysqli_real_escape_string($conn, htmlspecialchars(trim(strip_tags($datos ?? ""))));
   return $res;
 }
-
-
-
-?>

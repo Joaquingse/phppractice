@@ -8,21 +8,21 @@ if (!isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['enviar_form'])) {
-  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
-  $nombre = sanitizar($conexion, $_POST['nombre']);
-  $email = sanitizar($conexion, $_POST['email']);
-  $clave = sanitizar($conexion, $_POST['clave']);
-  $tipo = sanitizar($conexion, $_POST['tipo']);
+  //$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  $nombre = sanitizar($con, $_POST['nombre']);
+  $email = sanitizar($con, $_POST['email']);
+  $clave = sanitizar($con, $_POST['clave']);
+  $tipo = sanitizar($con, $_POST['tipo']);
   $query = "INSERT INTO usuarios (nombre, email, clave, tipo) VALUES ('$nombre', '$email', md5('$clave'), '$tipo')";
   if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
   }
 
-  $resultset = mysqli_query($conexion, $query);
+  $resultset = mysqli_query($con, $query);
 
-  if ($conexion->errno) {
-    echo "<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>";
-    die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+  if ($con->errno) {
+    echo "<p>Error en la consulta:$con->error </p>\n</body>\n</html>";
+    die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
   }
   print "<meta http-equiv='refresh' content='0; url=panel.php?modulo=usuarios' ";
 
