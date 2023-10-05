@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
 //mysqli_report(MYSQLI_REPORT_OFF);
 
 //creamos el objeto para la conexión
-$conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
 $id = $_REQUEST["id"];
 //creamos un if para los errores de conexión
 //Personalizamos el mensaje de error
@@ -26,25 +26,25 @@ if (mysqli_connect_errno()) {
 
 
 $query = "SELECT * FROM usuarios WHERE id= $id";
-$resultset = mysqli_query($conexion, $query);
-if ($conexion->errno) {
-  die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+$resultset = mysqli_query($con, $query);
+if ($con->errno) {
+  die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
 }
 if (isset($_POST['edit_user'])) {
-  $nombre = sanitizar($conexion, $_POST['nombre']);
-  $email = sanitizar($conexion, $_POST['email']);
-  $clave = sanitizar($conexion, $_POST['clave']);
-  $tipo = sanitizar($conexion, $_POST['tipo']);
-  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  $nombre = sanitizar($con, $_POST['nombre']);
+  $email = sanitizar($con, $_POST['email']);
+  $clave = sanitizar($con, $_POST['clave']);
+  $tipo = sanitizar($con, $_POST['tipo']);
+  $con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
   $query = "UPDATE usuarios SET nombre='$nombre', email='$email', clave=md5('$clave'), tipo='$tipo' WHERE id=$id";
   if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
   }
 
-  $resultset = mysqli_query($conexion, $query);
+  $resultset = mysqli_query($con, $query);
 
-  if ($conexion->errno) {
-    die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+  if ($con->errno) {
+    die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
   }
   print "<meta http-equiv='refresh' content='0; url=panel.php?modulo=usuarios'> ";
 

@@ -22,8 +22,8 @@ function console_log($output, $with_script_tags = true)
   echo $js_code;
 }
 
-function sanitizar($conexion, $datos)
+function sanitizar($con, $datos)
 {
-  $res = mysqli_real_escape_string($conexion, htmlspecialchars(trim(strip_tags($datos ?? ""))));
+  $res = mysqli_real_escape_string($con, htmlspecialchars(trim(strip_tags($datos ?? ""))));
   return $res;
 }

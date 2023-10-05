@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
 //mysqli_report(MYSQLI_REPORT_OFF);
 
 //creamos el objeto para la conexión
-$conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
 
 //creamos un if para los errores de conexión
 //Personalizamos el mensaje de error
@@ -23,17 +23,17 @@ if (mysqli_connect_errno()) {
   //die mata el proceso y muestra el error que queremos nosotros 
   die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
 }
-/*   if ($conexion->connect_errno) {
-    die("<p>Error de conexión Nº: $conexion->connect_errno - $conexion->connect_error</p>\n</body>\n</html>");
+/*   if ($con->connect_errno) {
+    die("<p>Error de conexión Nº: $con->connect_errno - $con->connect_error</p>\n</body>\n</html>");
   } */
 
 $query = "SELECT id, nombre, email, tipo FROM usuarios";
 
-$resultset = mysqli_query($conexion, $query);
+$resultset = mysqli_query($con, $query);
 
-if ($conexion->errno) {
-  echo "<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>";
-  die("<p>Error en la consulta:$conexion->error </p>\n</body>\n</html>");
+if ($con->errno) {
+  echo "<p>Error en la consulta:$con->error </p>\n</body>\n</html>";
+  die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
 }
 
 // print $query;
