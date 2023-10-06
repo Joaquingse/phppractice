@@ -12,7 +12,8 @@ $con = mysqli_init();
 mysqli_ssl_set($con,NULL,NULL,"./ssl/cert/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
 mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 3306, MYSQLI_CLIENT_SSL);
 
-
+$uName = "";
+$uId = "";
 
 
 function console_log($output, $with_script_tags = true)

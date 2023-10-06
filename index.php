@@ -8,13 +8,14 @@ if (isset($_POST['login_form'])) {
   //$conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
   $query = "SELECT * FROM usuarios WHERE email = '$email' AND clave = md5('$password') ";
   $resultset = mysqli_query($con, $query);
-  $cliente = mysqli_fetch_assoc($resultset);
-  if (!$cliente) {
+  $person = mysqli_fetch_assoc($resultset);
+  if (!$person) {
     $error_message = "Usuario no encontrado";
   } else {
-    $_SESSION['username'] = $cliente['nombre'];
-    $_SESSION['surname'] = $cliente['apellido'];
-    $_SESSION['id'] = $cliente['id'];
+    $_SESSION['username'] = $person['nombre'];
+    $_SESSION['id'] = $person['id'];
+    $uName = $person['nombre'];
+    $uId = $person['id'];
     header("Location: panel.php");
   }
 }

@@ -1,7 +1,9 @@
 <?php
 //importamos los datos para conectar desde el fichero db_connect.php
 include_once "db_connect.php";
-/* session_start();
+/* 
+//para pruebas en local
+session_start();
 session_regenerate_id();
 if (!isset($_SESSION['username'])) {
   header('Location: index.php');

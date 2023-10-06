@@ -1,11 +1,13 @@
 <?php
 include_once "db_connect.php";
+/* 
+//para pruebas en local
 session_start();
 session_regenerate_id();
 if (!isset($_SESSION['username'])) {
   header('Location: index.php');
   exit();
-}
+} */
 //funcion para sacar por consola mensages
 
 
