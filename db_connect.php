@@ -2,15 +2,15 @@
 
 //session_start();
 
-$db_host = "joaquingse-server.mysql.database.azure.com";
-$db_user = "joaquin";
-$db_pass = "Curso_PHP1";
-$db_database = "joaquingse";
-$db_port = "3306";
+$db_host = "containers-us-west-95.railway.app";
+$db_user = "root";
+$db_pass = "E3CHgrNdT6CNjW2HCdZC";
+$db_database = "railway";
+$db_port = 7466;
 
 $con = mysqli_init();
 mysqli_ssl_set($con,NULL,NULL,"./ssl/cert/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 3306, MYSQLI_CLIENT_SSL);
+mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 7466, MYSQLI_CLIENT_SSL);
 
 $uName = "";
 $uId = "";
