@@ -9,8 +9,8 @@ $db_database = "railway";
 $db_port = 7466;
 
 $con = mysqli_init();
-mysqli_ssl_set($con,NULL,NULL,"./ssl/cert/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 7466, MYSQLI_CLIENT_SSL);
+mysqli_ssl_set($con,NULL,NULL,NULL, NULL, NULL);
+mysqli_real_connect($con, $db_host, $db_user, $db_pass, $db_database, 7466);
 
 $uName = "";
 $uId = "";
