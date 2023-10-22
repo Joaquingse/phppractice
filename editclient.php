@@ -38,9 +38,8 @@ if (isset($_POST['edit_client'])) {
   $email = sanitizar($con, $_POST['email']);
   $clave = sanitizar($con, $_POST['clave']);
   $dni = sanitizar($con, $_POST['dni']);
-  $direccion = sanitizar($con, $_POST['direccion']);
   $query = "UPDATE clientes 
-        SET nombre='$nombre', apellido='$apellido', email='$email', clave=md5('$clave'), dni='$dni', direccion='$direccion' 
+        SET nombre='$nombre', apellido='$apellido', email='$email', clave=md5('$clave'), dni='$dni',  
         WHERE id=$id";
   if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: " . mysqli_connect_errno() . " - " . mysqli_connect_error() . "</p>\n</body>\n</html>");
@@ -75,7 +74,7 @@ if (isset($_POST['edit_client'])) {
                   </label>
                 </div>
                 <div class="mb-3">
-                  <label class="form-label col-12">Nombre:
+                  <label class="form-label col-12">Apellido:
                     <input type="text" class="form-control" name="apellido"
                       value="<?php print $row["apellido"] ?>">
                   </label>
@@ -96,12 +95,6 @@ if (isset($_POST['edit_client'])) {
                   <label class="form-label"> Dni:
                     <input type="text" class="form-control" name="dni"
                       value="<?php print $row["dni"] ?>">
-                  </label>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label col-12">Dirección:
-                    <input type="text" class="form-control" name="direccion"
-                      value="<?php print $row["direccion"] ?>">
                   </label>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-between mb-3">

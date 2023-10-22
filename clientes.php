@@ -30,7 +30,7 @@ if (mysqli_connect_errno()) {
     die("<p>Error de conexión Nº: $con->connect_errno - $con->connect_error</p>\n</body>\n</html>");
   } */
 
-$query = "SELECT id, nombre, apellido, email, clave, dni,direccion FROM clientes";
+$query = "SELECT id, nombre, apellido, email, clave, dni FROM clientes";
 
 $resultset = mysqli_query($con, $query);
 
@@ -61,7 +61,6 @@ if ($con->errno) {
                   <th>Apellido</th>
                   <th>Email</th>
                   <th>DNI</th>
-                  <th>Dirección</th>
                   <th>Acciones <a href="panel.php?modulo=newclient"><i class="ti ti-plus"></i></a>
                   </th>
                 </tr>
@@ -75,7 +74,6 @@ if ($con->errno) {
                     <td><?php print $row["apellido"] ?></td>
                     <td><?php print $row["email"] ?></td>
                     <td><?php print $row["dni"] ?></td>
-                    <td><?php print $row["direccion"] ?></td>
                     <td>
                       <a href="panel.php?modulo=editclient&id=<?php print $row["id"] ?>">
                         <i class="ti ti-edit"></i></a>

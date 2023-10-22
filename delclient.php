@@ -40,12 +40,12 @@ if ($con->errno) {
                             <h5 class="card-title mb-3">Producto:
                                 <strong><?php print $client["nombre"] ?></strong>
                             </h5>
-                            <p class="card-text">Va a eliminar el client <em><strong
+                            <p class="card-text">Va a eliminar el cliente <em><strong
                                         style="color: grey;"><?php print $client["nombre"] ?></strong></em>
                                 con precio<em><strong
-                                        style="color: grey;"><?php print $client["precio"] ?></strong></em>
-                                y cantidad <em><strong
-                                        style="color: grey;"><?php print $client["cantidad"] ?></strong></em>,
+                                        style="color: grey;"><?php print $client["dni"] ?></strong></em>
+                                y email <em><strong
+                                        style="color: grey;"><?php print $client["email"] ?></strong></em>,
                                 ¿está seguro de la acción?</p>
                             <div class="d-grid gap-2 d-md-flex justify-content-between mr-2">
                                 <a href="delclientFunction.php?id=<?php echo $client = $id; ?>"
