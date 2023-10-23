@@ -47,9 +47,7 @@ if (!isset($_SESSION['username'])) {
 <body class="hold-transition sidebar-mini layout-fixed">
   <?php
   include_once "db_connect.php";
-  //impide mostrar los errores del sistema
-  ini_set("display_errors", 0);
-  ini_set("display_startup_errors", 0);
+
   if (isset($_REQUEST["modulo"])) {
     $modulo = $_REQUEST["modulo"];
   } else {
