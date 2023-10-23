@@ -1,6 +1,6 @@
 <?php
 include_once "db_connect.php";
-session_start();
+//session_start();
 $uId= "";
 $uName="";
 if (isset($_POST['login_form'])) {

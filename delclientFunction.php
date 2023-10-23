@@ -1,8 +1,8 @@
 <?php
 include_once "db_connect.php";
-session_start();
+/* session_start();
 session_regenerate_id();
-
+ */
 
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];

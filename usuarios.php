@@ -3,12 +3,12 @@
 include_once "db_connect.php";
 
 //para pruebas en local
-session_start();
+/* session_start();
 session_regenerate_id();
 if (!isset($_SESSION['username'])) {
   header('Location: index.php');
   exit();
-} 
+}  */
 //impide mostrar los errores del sistema
 //ini_set("display_errors", 0);
 //ini_set("display_startup_errors", 0);
