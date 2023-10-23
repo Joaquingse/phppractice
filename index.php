@@ -14,6 +14,8 @@ if (isset($_POST['login_form'])) {
   } else {
     $_SESSION['username'] = $person['nombre'];
     $_SESSION['id'] = $person['id'];
+    $uName = $person['nombre'];
+    $uId = $person['id'];
     header("Location: panel.php");
   }
 }
