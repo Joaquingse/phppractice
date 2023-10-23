@@ -47,6 +47,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
   <?php
   include_once "db_connect.php";
+  include_once "index.php";
 
   if (isset($_REQUEST["modulo"])) {
     $modulo = $_REQUEST["modulo"];
