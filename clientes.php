@@ -11,8 +11,8 @@ if (!isset($_SESSION['username'])) {
 } */
 
 //impide mostrar los errores del sistema
-ini_set("display_errors", 0);
-ini_set("display_startup_errors", 0);
+//ini_set("display_errors", 0);
+//ini_set("display_startup_errors", 0);
 
 //anula los reportes de error de mysql
 //mysqli_report(MYSQLI_REPORT_OFF);
