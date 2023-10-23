@@ -101,7 +101,7 @@ if (!isset($_SESSION['username'])) {
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
           </div>
           <div class="info">
-            <a href="panel.php?modulo=edituser&id=<?php echo $_SESSION["id"] ?>" class="d-block"><?php echo $_SESSION["username"] ?></a>
+            <a href="panel.php?modulo=edituser&id=<?php echo $uId ?>" class="d-block"><?php echo $uName ?></a>
           </div>
         </div>
 
