@@ -33,23 +33,22 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
- <?php
-session_start();
-session_regenerate_id();
+<?php
+  /* session_start();
+  session_regenerate_id();
 
-if (!isset($_SESSION['username'])) {
-  header('Location: index.php');
-  exit();
-}
+  if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit();
+  } */ 
 
-?> 
+?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <?php
   include_once "db_connect.php";
-  //impide mostrar los errores del sistema
-  ini_set("display_errors", 0);
-  ini_set("display_startup_errors", 0);
+  include_once "index.php";
+
   if (isset($_REQUEST["modulo"])) {
     $modulo = $_REQUEST["modulo"];
   } else {
@@ -101,7 +100,7 @@ if (!isset($_SESSION['username'])) {
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" />
           </div>
           <div class="info">
-            <a href="panel.php?modulo=edituser&id=<?php echo $_SESSION["id"] ?>" class="d-block"><?php echo $_SESSION["username"] ?></a>
+            <a href="panel.php?modulo=edituser&id=<?php echo $uId ?>" class="d-block"><?php echo $uName ?></a>
           </div>
         </div>
 

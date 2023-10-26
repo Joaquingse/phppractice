@@ -2,12 +2,12 @@
 include_once "db_connect.php";
 
 //para pruebas en local
-session_start();
+/* session_start();
 session_regenerate_id();
 if (!isset($_SESSION['username'])) {
   header('Location: index.php');
   exit();
-}
+} */
 
 if (isset($_POST['enviar_form'])) {
   //$con = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
