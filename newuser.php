@@ -27,7 +27,6 @@ if (isset($_POST['enviar_form'])) {
     die("<p>Error en la consulta:$con->error </p>\n</body>\n</html>");
   }
   print "<meta http-equiv='refresh' content='0; url=panel.php?modulo=usuarios' ";
-
 }
 ?>
 
@@ -43,31 +42,29 @@ if (isset($_POST['enviar_form'])) {
             <form class="" action="" method="post">
               <div class="mb-3">
                 <label for="" class="form-label col-12">Nombre:
-                  <input type="text" class="form-control" name="nombre"
-                    placeholder="Escribe el nombre">
+                  <input type="text" class="form-control" name="nombre" placeholder="Escribe el nombre">
                 </label>
               </div>
               <div class="mb-3">
                 <label class="form-label col-12">Email:
-                  <input type="email" class="form-control" name="email"
-                    placeholder="Escribe el email">
+                  <input type="email" class="form-control" name="email" placeholder="Escribe el email">
                 </label>
               </div>
               <div class="mb-3">
                 <label class="form-label col-12">Password:
-                  <input type="password" class="form-control" name="clave"
-                    placeholder="Escribe el password">
+                  <input type="password" class="form-control" name="clave" placeholder="Escribe el password">
                 </label>
               </div>
-              <div class="mb-3 ml-2">
-                <label class="form-label"> Tipo:
-                  <input type="text" class="form-control" name="tipo"
-                    placeholder="Empleado o administrador">
+              <div class="mb-3 ml-2">Tipo:
+                <label class="form-label"> Emplado
+                  <input type="radio" class="" name="tipo" value="Empleado">
+                </label>
+                <label class="form-label"> Administrador
+                  <input type="radio" class="" name="tipo" value="Administrador">
                 </label>
               </div>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end mr-2">
-                <button type="submit" class="btn btn-primary" name="enviar_form"><i
-                    class="fas fa-save mr-2"></i>Save</button>
+                <button type="submit" class="btn btn-primary" name="enviar_form"><i class="fas fa-save mr-2"></i>Save</button>
               </div>
             </form>
           </div>
